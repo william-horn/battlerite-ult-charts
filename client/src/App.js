@@ -32,7 +32,12 @@ npm i react-router-dom graphql @apollo/client styled-components
 /* ---------------- */
 /* Import Internals */
 /* ---------------- */
-import Test from './global-components/Test';
+import Test from './components/Test';
+
+// Import all page components
+import { 
+    HomePage
+} from './pages'
 
 /* ---------------- */
 /* Import Externals */
@@ -80,7 +85,9 @@ function App() {
     return (
         <ApolloProvider client={client}>
             <BrowserRouter>
-                <Test/>
+                <Routes>
+                    <Route path="/" element={<HomePage/>}/>
+                </Routes>
             </BrowserRouter>
         </ApolloProvider>
     );
